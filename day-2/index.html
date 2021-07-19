@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>30 Days of React | Day 2</title>
+
+        <style>
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+
+            body {
+                background: #fff;
+                color: #333;
+                width: 900px;
+                margin:  auto;
+            }
+
+            /* header {
+                padding: 2rem;
+                border-bottom: 1px dotted #333;
+            } */
+
+            header h1 {
+                margin-bottom: 0.5rem;
+            }
+
+            header h2 {
+                margin-bottom: 1.5rem;
+            }
+
+            main {
+                padding: 2rem;
+                border-bottom: 1px dotted #333;
+            }
+
+
+            main h2 {
+                margin-bottom: 2rem;
+            }
+
+            .name-div {
+                margin: 2rem 0 1rem 0;
+            }
+
+            .name-input {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                margin-left: 0.5rem;
+            }
+
+            #name-input-label {
+                font-size: 1.2rem;
+            }
+
+            footer {
+                padding: 2rem;
+                bottom:0;
+                background: #61dbfb;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Root div connects all the React components to index.html -->
+        <div class="root"></div>
+
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+        <!-- JavaScript code written here but the type is Babel as it will handle rendering of DOM by converting JSX to pure JavaScript -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        
+
+        <script type="text/babel">
+            // console.log(React);
+
+            const root = document.querySelector('.root');
+
+            // <header style={{border: '2px solid orange', padding: '2rem', marginTop: '1rem'}}>
+
+            const headerStyle = {border: '2px solid orange', padding: '2rem', marginTop: '1rem', backgroundColor: '#61dbfb'};
+
+
+            const welcome = "Welcome to 30 days of React";
+            const author = {
+                fName: "Bharati",
+                lName: 'Subramanian'
+            };
+            const date = "19th July, 2021";
+            const subtitle = "Getting started with ReactJS"
+
+            const yearBorn = 1999;
+            const currentYear = new Date().getFullYear();
+            const authorAge = currentYear - yearBorn;
+
+            const header = (
+                <header style={headerStyle}>
+                    <h1>{welcome}</h1>
+                    <h2>{subtitle}</h2>
+                    <p>Author: <strong>{author.fName}</strong></p>
+                    <small><em>{date}</em></small>
+                </header>
+            );
+
+
+            const prerequisites = ['HTML', 'CSS', 'JavaScript'];
+
+            const main = (
+                <main>
+                    <h2>The instructor is: {author.fName} {author.lName}. She is {authorAge} years old.</h2>
+                    <h3>Prerequisites for ReactJS</h3>
+                    <ul>
+                        <li>{prerequisites[0]}</li>
+                        <li>{prerequisites[1]}</li>
+                        <li>{prerequisites[2]}</li>
+                    </ul>
+                    <div class="name-div">
+                        <label for="name-input" id="name-input-label">Name</label>
+                        <input type="name-input" className="name-input" id="name-input" placeholder="Enter your first name"></input>
+                    </div>
+
+                    <div>Age = {currentYear - yearBorn}</div>
+                </main>
+            );
+
+            const footer = (
+                <footer>
+                    <p>Made with love by <strong>Bharati</strong>
+                        <br />
+                        <small>&copy; 2021</small>
+                    </p>
+                </footer>
+            );
+
+            const bodyWrapper = (
+                <div>
+                    {header}
+                    {main}
+                    {footer}
+                </div>
+            );
+            // const h1Jsx = <h1>I am a JSX element!</h1>
+            ReactDOM.render(bodyWrapper, root);
+        </script>
+    </body>
+</html>
